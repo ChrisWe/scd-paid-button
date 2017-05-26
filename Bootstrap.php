@@ -175,11 +175,16 @@ final class Shopware_Plugins_Backend_ViisonSCDPaidButton_Bootstrap extends Viiso
         // Require all shared dependencies
         $loader = VIISON\ShopwarePluginDependencyLoader\Loader::getInstance();
         $loader->requireDependencies($this->Path(), [
-            'ViisonCommon'
+            'ViisonCommon',
+            'ViisonSCDOrderButton'
         ]);
 
         // Add the subscribers of ViisonCommon
         $subscriberRegistrator = new Shopware\Plugins\ViisonCommon\Classes\SubscriberRegistrator($this);
+        $subscriberRegistrator->registerSubscribers();
+
+        // Add the subscribers of ViisonSCDOrderButton
+        $subscriberRegistrator = new Shopware\Plugins\ViisonSCDOrderButton\Classes\SubscriberRegistrator($this);
         $subscriberRegistrator->registerSubscribers();
     }
 

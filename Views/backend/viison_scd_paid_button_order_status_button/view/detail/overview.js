@@ -9,11 +9,9 @@ Ext.define('Shopware.apps.ViisonSCDPaidButtonOrderStatusButton.view.detail.Overv
     createDetailsContainer: function() {
         var container = this.callParent(arguments);
 
-        // Add a 'mark as paid' button
-        container.add(Ext.create('Ext.button.Button', {
-            text: '🦄🦄🦄 {s name=view/detail/button/mark_as_paid/title}{/s} 🦄🦄🦄',
-            margin: 10,
-            cls: 'primary',
+        // Add a 'mark as paid' unicorn button
+        container.add(Ext.create('Shopware.apps.ViisonSCDOrderButtonUnicornButton.Button', {
+            text: '{s name=view/detail/button/mark_as_paid/title}{/s}',
             scope: this,
             handler: function() {
                 var window = this.up('order-detail-window');
